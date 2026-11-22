@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#fbf3e4">
+  <meta name="robots" content="noindex">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Thanksgiving">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+  <title>Thanksgiving</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <section id="landing" class="landing" hidden>
+    <h1>Thanksgiving</h1>
+    <p>Your plan for the week: what to do each day, the shopping list, Thursday’s cooking timeline with alarms, and the recipes — shared with whoever is helping in the kitchen.</p>
+    <button id="startBtn" class="btn btn-primary btn-big" type="button">Start our Thanksgiving</button>
+    <p id="landingError" class="warn" hidden>Couldn’t reach the server. Check the connection and try again.</p>
+    <p class="muted small">You’ll get a private link. Anyone you send it to can tick things off with you; nobody else can see it.</p>
+  </section>
+
+  <div id="app" hidden>
+    <header class="top">
+      <h1><a href="#today">Thanksgiving</a></h1>
+      <span id="dinnerChip" class="chip"></span>
+      <button id="shareBtn" class="btn btn-small" type="button">Invite helpers</button>
+    </header>
+    <nav class="tabs" aria-label="Sections">
+      <a href="#today" data-tab="today">Thursday</a>
+      <a href="#prep" data-tab="prep">Before</a>
+      <a href="#shop" data-tab="shop">Shopping</a>
+      <a href="#recipes" data-tab="recipes">Recipes</a>
+    </nav>
+    <p id="offline" class="offline" hidden>Not connected — changes will sync when the connection is back.</p>
+    <main id="view"></main>
+    <div id="timers" class="timers" hidden></div>
+  </div>
+
+  <div id="alarm" class="alarm" role="alertdialog" aria-labelledby="alarmTitle" hidden>
+    <div class="alarm-box">
+      <p class="eyebrow">Now <span id="alarmMore"></span></p>
+      <h2 id="alarmTitle"></h2>
+      <p id="alarmText"></p>
+      <div class="row">
+        <button id="alarmDone" class="btn btn-primary btn-big" type="button">✓ Mark done (everyone)</button>
+        <button id="alarmAck" class="btn btn-big" type="button">Got it — silence</button>
+      </div>
+    </div>
+  </div>
+
+  <p id="flash" class="flash" role="status" hidden></p>
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
