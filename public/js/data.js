@@ -197,7 +197,6 @@ export const PREP = [
     label: 'Wednesday',
     tasks: [
       { id: 'dry-brine', title: 'Dry-brine the turkey (by about noon)', text: '12–24 hours before it goes in the oven. Pat dry, rub with 2 Tbsp kosher salt + 1 tsp baking powder, set skin-side up on a rack in a rimmed sheet pan, refrigerate uncovered.', recipe: 'turkey', step: 'brine' },
-      { id: 'make-cranberry', title: 'Make the cranberry sauce', text: 'Ten minutes on the stove, then into the serving bowl, cool and refrigerate.', recipe: 'cranberry' },
       { id: 'thaw-beans', title: 'Thaw the green beans (if frozen)', text: 'Move them to the fridge so they are ready to pat dry tomorrow.' },
       { id: 'cube-bread', title: 'Cube the bread and leave it out (evening)', text: 'Cut into ½-inch cubes and spread on sheet pans or a big tray, uncovered, to dry overnight.' },
       { id: 'chill-drinks', title: 'Chill drinks, check the pie', text: 'If the pie needs refrigerating, keep it cold. Set out the pans, rack, thermometer and foil for the morning.' },
@@ -219,7 +218,7 @@ export const SHOPPING = [
   { id: 'garlic', section: 'Produce', name: 'Garlic, 1 head', note: '3 cloves for the casserole' },
   { id: 'mushrooms', section: 'Produce', name: 'Cremini (baby bella) mushrooms, 1 lb', note: 'Casserole · buy Tuesday' },
   { id: 'green-beans', section: 'Produce', name: 'Green beans, 2 lb', note: 'Or 2 lb frozen cut beans — no blanching needed' },
-  { id: 'cranberries', section: 'Produce', name: 'Fresh cranberries, 12 oz bag', note: '' },
+  { id: 'cranberries', section: 'Pantry', name: 'Cranberry sauce (store-bought)', note: 'Bought' },
   { id: 'thyme', section: 'Produce', name: 'Fresh thyme, 2 small packs', note: 'Gravy, stuffing, casserole · buy Tuesday' },
   { id: 'sage', section: 'Produce', name: 'Fresh sage, 1 pack', note: 'Gravy and stuffing · buy Tuesday' },
   { id: 'rosemary', section: 'Produce', name: 'Fresh rosemary, 1 pack', note: 'Gravy and stuffing · buy Tuesday' },
@@ -230,7 +229,7 @@ export const SHOPPING = [
   { id: 'eggs', section: 'Dairy & eggs', name: 'Large eggs, 2', note: 'Stuffing' },
 
   { id: 'bread', section: 'Bakery', name: 'Sourdough or hearty white loaf, 16–20 oz', note: 'Cubed Wednesday night · buy Tuesday' },
-  { id: 'rolls', section: 'Bakery', name: 'Dinner rolls, 1 dozen', note: 'Warmed at the end' },
+  { id: 'rolls', section: 'Bakery', name: 'Sister Schubert’s Parker House rolls, 10 oz', note: 'Bake at the end' },
 
   { id: 'frozen-beans', section: 'Frozen', name: '(Only if not buying fresh beans) frozen cut green beans, 2 lb', note: 'Thaw in the fridge Wednesday' },
 
@@ -248,7 +247,9 @@ export const SHOPPING = [
 
   { id: 'pie', section: 'Dessert, drinks & snacks', name: 'Pie (store-bought)', note: 'Plus whipped cream or ice cream' },
   { id: 'drinks', section: 'Dessert, drinks & snacks', name: 'Drinks', note: 'Something kid-friendly for the 3-year-old' },
-  { id: 'snacks', section: 'Dessert, drinks & snacks', name: 'Snacks for before dinner', note: 'Cheese, crackers, nuts, veg' },
+  { id: 'snacks', section: 'Dessert, drinks & snacks', name: 'Chips and dip', note: '' },
+  { id: 'shrimp', section: 'Frozen', name: 'Large shrimp, 2 lb, plus cocktail sauce', note: 'Boiled ahead; served cold on ice' },
+  { id: 'poppers', section: 'Meat', name: 'Bacon-wrapped jalapeño poppers, ~2 lb', note: 'Bake during the turkey roast' },
 
   { id: 'roast-pan', section: 'Supplies', name: 'Heavy-duty disposable roasting pan, 16×12 in', note: 'Stuffing; the turkey rack sits on its rim' },
   { id: 'foil-pan', section: 'Supplies', name: 'Disposable foil pan, 9×13 in', note: 'Casserole' },
@@ -272,16 +273,17 @@ export const DAY = [
   { id: 'turkey-ready', at: -120, title: 'Oil the turkey, set it over the stuffing', text: 'Rub 1–2 Tbsp oil over the skin. Set the wire rack with the turkey on the rim of the stuffing pan.', recipe: 'turkey', step: 'roast' },
   { id: 'turkey-in', at: -115, title: 'Turkey and stuffing into the oven', alarm: true, text: 'Lower-middle rack. Start the timer: first temperature check at 70 minutes.', recipe: 'turkey', step: 'roast', timer: 70 },
   { id: 'stock-brown', at: -110, title: 'Gravy stock: brown the turkey parts and vegetables', text: 'Medium saucepan, 1 Tbsp oil, medium-high: backbone, neck, giblets and the chopped vegetables, 8–10 minutes until deeply browned.', recipe: 'turkey', step: 'stock', timer: 10 },
+  { id: 'poppers-in', at: -110, title: 'Jalapeño poppers onto the upper rack', alarm: true, text: 'Bacon-wrapped poppers on a foil-lined rimmed sheet pan (the bacon drips), upper rack beside the turkey. The oven is at 450°F, hotter than the package probably says, so check at 15 minutes and take them out when the bacon is crisp and browned.', timer: 15 },
   { id: 'stock-simmer', at: -100, title: 'Gravy stock: add broth and herbs, simmer 45 min', alarm: true, text: '4 cups broth plus the herb sprigs. Boil, then a gentle simmer.', recipe: 'turkey', step: 'stock', timer: 45 },
-  { id: 'snacks-out', at: -90, title: 'Snacks and drinks out; make-ahead dishes out of the fridge', alarm: true, text: 'Set out snacks. Take the mashed potatoes, green bean casserole and sweet potatoes out of the fridge so they aren’t fridge-cold when they go in (well under the 2-hour limit).' },
+  { id: 'snacks-out', at: -90, title: 'Snacks out; make-ahead sides out of the fridge', alarm: true, text: 'Shrimp on a bowl of ice with the cocktail sauce (keep it on ice, or back in the fridge within 2 hours), chips and dip, and the poppers once they’re out. Take the mashed potatoes, green bean casserole and sweet potatoes out of the fridge so they aren’t fridge-cold when they go in.' },
   { id: 'stock-strain', at: -55, title: 'Strain the gravy stock', text: 'Through a fine-mesh sieve into a measuring cup (about 3½ cups). Keep it warm.', recipe: 'turkey', step: 'stock' },
   { id: 'temp-check', at: -45, title: 'Check the turkey temperature', alarm: true, text: 'Thickest part of the breast 160°F, thigh 175°F. Not there yet? Check every 5 minutes — and use “Running late” below if it needs more than about 10 extra minutes.', recipe: 'turkey', step: 'roast' },
   { id: 'turkey-out', at: -35, title: 'Turkey out to rest; oven down to 400°F', alarm: true, text: 'Turkey on its rack to a cutting board, tent with foil, rest 25–30 min. Stir the stuffing to soak up the drippings and tent it. Turn the oven to 400°F, door open a minute to drop the heat. The rest is when every side reheats.', recipe: 'turkey', step: 'rest', timer: 30 },
   { id: 'reheat-in', at: -33, title: 'All the sides into the oven', alarm: true, text: 'Oven at 400°F. Middle rack: green bean casserole, uncovered, onion topping not on yet (cover it with foil if it was already baked). Upper rack: mashed potatoes in their foil pan and the sweet potatoes, both covered with foil. Put a sheet pan under the potato foil pan so it’s easy to lift.', recipe: 'beans', step: 'bake', timer: 15 },
   { id: 'gravy', at: -30, title: 'Make the gravy', text: 'Wipe out the saucepan: 3 Tbsp butter, 3 Tbsp flour, 1 minute, whisk in the hot stock, simmer 5 minutes. Season.', recipe: 'turkey', step: 'gravy', timer: 5 },
-  { id: 'cranberry-out', at: -20, title: 'Cranberry sauce to the table; pour drinks', text: 'Take it out of the fridge.' },
+  { id: 'cranberry-out', at: -20, title: 'Cranberry sauce to the table; pour drinks', text: 'Open the store-bought cranberry sauce into a serving bowl (if it’s jellied in a can, open both ends and push it out in one piece, then slice).' },
   { id: 'potatoes-stir', at: -18, title: 'Stir the mashed potatoes', text: 'Stir well so the cold middle meets the hot edges. Add a splash of warm cream if they look stiff, re-cover, and put them back.', recipe: 'potatoes', step: 'whip' },
-  { id: 'casserole-top', at: -12, title: 'Onions on the casserole; rolls in', alarm: true, text: 'Scatter the fried onions over the casserole and bake 8 minutes more until golden. Wrap the rolls in foil and put them in too. Check the sweet potatoes are hot in the middle; take them out when they are.', recipe: 'beans', step: 'bake', timer: 8 },
+  { id: 'casserole-top', at: -12, title: 'Onions on the casserole; rolls in', alarm: true, text: 'Scatter the fried onions over the casserole and bake 8 minutes more until golden. Sister Schubert’s rolls: take the lid and plastic off and bake them uncovered in their own foil pan, about 8–10 minutes at 400°F until golden on top (check the package; it may say 375°F for a little longer).', recipe: 'beans', step: 'bake', timer: 8 },
   { id: 'carve', at: -5, title: 'Carve the turkey', text: 'Legs and thighs off first, then slice the breasts off the bone and across the grain.' },
   { id: 'to-table', at: -3, title: 'Everything to the table', alarm: true, text: 'Casserole, mashed potatoes, sweet potatoes and rolls out of the oven (the foil pans are hot — use mitts underneath). Stuffing, potatoes, gravy, cranberry sauce.' },
   { id: 'dinner', at: 0, title: 'Dinner!', alarm: true, text: 'Sit down. You did it.' },
