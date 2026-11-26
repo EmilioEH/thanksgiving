@@ -51,6 +51,8 @@ test('the one oven is never asked for two temperatures at once', () => {
   assert.ok(at('reheat-in') >= at('turkey-out'), 'casserole and sweet potatoes only go in at 400°F');
   assert.ok(at('to-table') - at('reheat-in') >= 25, 'casserole gets at least 25 min from room temperature');
   assert.ok(at('reheat-in') - at('snacks-out') <= 120, 'make-ahead dishes are out of the fridge under 2 hours');
+  assert.ok(at('potatoes-in') >= at('turkey-in') && at('potatoes-in') < at('turkey-out'), 'mashed potatoes go in at 450°F, while the turkey roasts');
+  assert.ok(at('to-table') - at('potatoes-in') >= 45, 'mashed potatoes get at least 45 min to heat through');
   // Turkey roasts 75–85 min: the planned check and removal fall in that window.
   const roast = at('turkey-out') - at('turkey-in');
   assert.ok(roast >= 75 && roast <= 85, `roast window ${roast} min`);
@@ -60,7 +62,7 @@ test('the one oven is never asked for two temperatures at once', () => {
   const rest = at('carve') - at('turkey-out');
   assert.ok(rest >= 25 && rest <= 30, `rest ${rest} min`);
   // Nothing left in the plan for dishes that were made ahead.
-  for (const gone of ['potatoes-micro', 'potatoes-oven', 'mushrooms', 'casserole-sauce', 'stuffing-saute', 'blanch']) {
+  for (const gone of ['potatoes-micro', 'potatoes-oven', 'mushrooms', 'casserole-sauce', 'stuffing-saute', 'blanch', 'potatoes-reheat']) {
     assert.ok(!DAY.some((s) => s.id === gone), gone);
   }
 });
