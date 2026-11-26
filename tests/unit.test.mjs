@@ -49,7 +49,7 @@ test('the one oven is never asked for two temperatures at once', () => {
   const at = (id) => DAY.find((s) => s.id === id).at;
   // 450°F from preheat until the turkey comes out; potatoes must be out by then.
   assert.ok(at('reheat-in') >= at('turkey-out'), 'casserole and sweet potatoes only go in at 400°F');
-    assert.ok(at('reheat-in') - at('snacks-out') <= 120, 'make-ahead dishes are out of the fridge under 2 hours');
+    assert.ok(at('reheat-in') - at('sides-out') <= 120, 'make-ahead dishes are out of the fridge under 2 hours');
   assert.ok(at('to-table') - at('reheat-in') >= 30, 'sides get at least 30 min to heat through');
   assert.ok(at('poppers-in') + 20 <= at('snacks-out') + 10, 'poppers are ready around snack time');
   // Turkey roasts 75–85 min: the planned check and removal fall in that window.
