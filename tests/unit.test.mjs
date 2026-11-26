@@ -22,7 +22,7 @@ test('relative and countdown text', () => {
 test('current and next steps', () => {
   const at = stepTime('14:00', 0, -114).getTime(); // a minute after the turkey goes in
   const { current, next } = layoutDay(DAY, { dinner: '14:00', shift: 0, checks: {} }, at);
-  assert.equal(current.step.id, 'prep-veg'); // nothing ticked yet: earliest undone
+  assert.equal(current.step.id, 'gravy-veg'); // nothing ticked yet: earliest undone
   assert.equal(next.step.id, 'stock-brown');
   const checks = Object.fromEntries(DAY.filter((s) => s.at <= -115).map((s) => [s.id, 1]));
   assert.equal(layoutDay(DAY, { dinner: '14:00', shift: 0, checks }, at).current, null);
@@ -48,8 +48,9 @@ test('ids are unique and every link points somewhere real', () => {
 test('the one oven is never asked for two temperatures at once', () => {
   const at = (id) => DAY.find((s) => s.id === id).at;
   // 450°F from preheat until the turkey comes out; potatoes must be out by then.
-  assert.ok(at('potatoes-oven') + 25 <= at('turkey-out'), 'potatoes finish before the oven drops to 400');
-  assert.ok(at('casserole-in') >= at('turkey-out'), 'casserole only goes in at 400°F');
+  assert.ok(at('reheat-in') >= at('turkey-out'), 'casserole and sweet potatoes only go in at 400°F');
+  assert.ok(at('to-table') - at('reheat-in') >= 25, 'casserole gets at least 25 min from room temperature');
+  assert.ok(at('reheat-in') - at('snacks-out') <= 120, 'make-ahead dishes are out of the fridge under 2 hours');
   // Turkey roasts 75–85 min: the planned check and removal fall in that window.
   const roast = at('turkey-out') - at('turkey-in');
   assert.ok(roast >= 75 && roast <= 85, `roast window ${roast} min`);
@@ -58,4 +59,8 @@ test('the one oven is never asked for two temperatures at once', () => {
   // Rest 25–30 min before carving.
   const rest = at('carve') - at('turkey-out');
   assert.ok(rest >= 25 && rest <= 30, `rest ${rest} min`);
+  // Nothing left in the plan for dishes that were made ahead.
+  for (const gone of ['potatoes-micro', 'potatoes-oven', 'mushrooms', 'casserole-sauce', 'stuffing-saute', 'blanch']) {
+    assert.ok(!DAY.some((s) => s.id === gone), gone);
+  }
 });
