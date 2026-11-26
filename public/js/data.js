@@ -245,7 +245,7 @@ export const SHOPPING = [
   { id: 'baking-powder', section: 'Spices & baking', name: 'Baking powder', note: '1 tsp, for crackling skin', staple: true },
   { id: 'cinnamon', section: 'Spices & baking', name: 'Cinnamon stick', note: 'Optional, cranberry sauce', staple: true },
 
-  { id: 'pie', section: 'Dessert, drinks & snacks', name: 'Pie (store-bought)', note: 'Plus whipped cream or ice cream' },
+  { id: 'pie', section: 'Dessert, drinks & snacks', name: 'Pumpkin pie and whipped cream', note: 'Bought' },
   { id: 'drinks', section: 'Dessert, drinks & snacks', name: 'Drinks', note: 'Something kid-friendly for the 3-year-old' },
   { id: 'snacks', section: 'Dessert, drinks & snacks', name: 'Chips and dip', note: '' },
   { id: 'shrimp', section: 'Frozen', name: 'Large shrimp, 2 lb, plus cocktail sauce', note: 'Boiled ahead; served cold on ice' },
@@ -287,6 +287,7 @@ export const DAY = [
   { id: 'carve', at: -5, title: 'Carve the turkey', text: 'Legs and thighs off first, then slice the breasts off the bone and across the grain.' },
   { id: 'to-table', at: -3, title: 'Everything to the table', alarm: true, text: 'Casserole, mashed potatoes, sweet potatoes and rolls out of the oven (the foil pans are hot — use mitts underneath). Stuffing, potatoes, gravy, cranberry sauce.' },
   { id: 'dinner', at: 0, title: 'Dinner!', alarm: true, text: 'Sit down. You did it.' },
-  { id: 'pie-out', at: 30, title: 'Take the pie out of the fridge', text: 'So it isn’t fridge-cold for dessert.' },
+  { id: 'pie-out', at: 30, title: 'Pumpkin pie out of the fridge', text: 'So it isn’t fridge-cold for dessert. The whipped cream stays in the fridge until you serve.' },
+  { id: 'dessert', at: 60, title: 'Dessert: pumpkin pie and whipped cream', alarm: true, text: 'Shake the whipped cream can well (or give tub cream a quick stir). Pumpkin pie is a custard: put what’s left back in the fridge after serving, with the whipped cream.' },
   { id: 'leftovers', at: 85, title: 'Leftovers into the fridge', alarm: true, text: 'Within 2 hours of coming out of the oven. Carve the rest of the turkey off the bone first — it chills faster and reheats better.' },
 ];
