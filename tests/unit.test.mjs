@@ -22,7 +22,7 @@ test('relative and countdown text', () => {
 test('current and next steps', () => {
   const at = stepTime('14:00', 0, -114).getTime(); // a minute after the turkey goes in
   const { current, next } = layoutDay(DAY, { dinner: '14:00', shift: 0, checks: {} }, at);
-  assert.equal(current.step.id, 'gravy-veg'); // nothing ticked yet: earliest undone
+  assert.equal(current.step.id, 'rolls-thaw'); // nothing ticked yet: earliest undone
   assert.equal(next.step.id, 'stock-brown');
   const checks = Object.fromEntries(DAY.filter((s) => s.at <= -115).map((s) => [s.id, 1]));
   assert.equal(layoutDay(DAY, { dinner: '14:00', shift: 0, checks }, at).current, null);
